@@ -1,38 +1,45 @@
-import { Car, Heart, Shield, Bike, Building2, Users, TrendingUp, LayoutGrid } from "lucide-react";
+import { Car, Heart, Shield, Bike, Building2, Users, TrendingUp, Stethoscope, ChevronRight } from "lucide-react";
 
 const products = [
-  { icon: Car, label: "Car", sub: "Insurance" },
-  { icon: Bike, label: "Bike", sub: "Insurance" },
-  { icon: Heart, label: "Health", sub: "Insurance" },
-  { icon: Shield, label: "Term", sub: "Insurance" },
-  { icon: TrendingUp, label: "Investment", sub: "Plans" },
-  { icon: Building2, label: "Business", sub: "Insurance" },
-  { icon: Users, label: "Family Health", sub: "Insurance" },
-  { icon: LayoutGrid, label: "View More", sub: "" },
+  { icon: Car, label: "Car Insurance", desc: "Comprehensive coverage for your vehicle", color: "blue" as const },
+  { icon: Bike, label: "Bike Insurance", desc: "Ride with confidence, stay protected", color: "yellow" as const },
+  { icon: Heart, label: "Health Insurance", desc: "Complete health & medical coverage", color: "blue" as const },
+  { icon: Shield, label: "Term Insurance", desc: "Secure your family's future today", color: "yellow" as const },
+  { icon: TrendingUp, label: "Investment Plans", desc: "Grow your wealth with smart plans", color: "blue" as const },
+  { icon: Building2, label: "Business Insurance", desc: "Protect your business from risks", color: "yellow" as const },
+  { icon: Users, label: "Family Health", desc: "One plan for the whole family", color: "blue" as const },
+  { icon: Stethoscope, label: "Critical Illness", desc: "Coverage when you need it most", color: "yellow" as const },
 ];
 
-const Products = () => (
-  <section id="products" className="py-20">
-    <div className="container">
-      <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-foreground">
-        Our Insurance Products
-      </h2>
-      <p className="mt-3 text-center text-muted-foreground max-w-xl mx-auto">
-        Choose from a wide range of insurance plans tailored to your needs.
-      </p>
+const colorMap = {
+  blue: "icon-wrapper-blue group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 group-hover:shadow-lg",
+  yellow: "icon-wrapper-yellow group-hover:bg-accent group-hover:text-accent-foreground group-hover:scale-110 group-hover:shadow-lg",
+};
 
-      <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-3xl mx-auto">
-        {products.map(({ icon: Icon, label, sub }) => (
+const Products = () => (
+  <section id="products" className="section-padding">
+    <div className="container">
+      <div className="text-center">
+        <span className="badge-accent">Our Products</span>
+        <h2 className="section-title mt-4">Insurance Made Simple</h2>
+        <p className="section-subtitle">
+          Choose from a wide range of insurance plans tailored to protect what matters most.
+        </p>
+      </div>
+
+      <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-5">
+        {products.map(({ icon: Icon, label, desc, color }) => (
           <button
             key={label}
-            className="group flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-6 hover:border-primary/40 hover:shadow-md active:scale-[0.97] transition-all"
+            className="group card-elevated text-left"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-              <Icon className="h-6 w-6" />
+            <div className={colorMap[color]}>
+              <Icon className="h-6 w-6 fill-current" />
             </div>
-            <div className="text-center">
-              <span className="block text-sm font-semibold text-foreground">{label}</span>
-              {sub && <span className="block text-xs text-muted-foreground">{sub}</span>}
+            <h3 className="mt-4 text-sm font-bold text-foreground">{label}</h3>
+            <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+            <div className="mt-3 flex items-center text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Learn more <ChevronRight className="h-3 w-3 ml-0.5" />
             </div>
           </button>
         ))}
