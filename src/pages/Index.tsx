@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
-import StatsBar from "@/components/StatsBar";
-import Benefits from "@/components/Benefits";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import HowItWorks from "@/components/HowItWorks";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -12,8 +14,10 @@ const Index = () => (
     <main className="flex-1">
       <Hero />
       <Products />
-      <StatsBar />
-      <Benefits />
+      <WhyChooseUs />
+      <HowItWorks />
+      <Testimonials />
+      <Pricing />
       <Contact />
     </main>
     <Footer />
