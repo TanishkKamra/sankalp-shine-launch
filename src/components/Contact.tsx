@@ -1,27 +1,33 @@
 import { Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Contact = () => (
-  <section id="contact" className="bg-surface py-20">
-    <div className="container max-w-xl">
-      <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-foreground">
-        Get a Free Quote
-      </h2>
-      <p className="mt-3 text-center text-muted-foreground">
-        Fill in your details and our advisor will reach out to you shortly.
-      </p>
+  <section id="contact" className="section-padding gradient-section relative overflow-hidden">
+    {/* Decorative */}
+    <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+    <div className="absolute bottom-10 left-10 w-60 h-60 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
 
-      <form onSubmit={(e) => e.preventDefault()} className="mt-10 space-y-5">
+    <div className="container max-w-xl relative">
+      <div className="text-center">
+        <span className="badge-accent">Get Started</span>
+        <h2 className="section-title mt-4">Get a Free Quote</h2>
+        <p className="section-subtitle">
+          Fill in your details and our expert advisor will reach out within minutes.
+        </p>
+      </div>
+
+      <form onSubmit={(e) => e.preventDefault()} className="mt-10 space-y-4">
         <input
           type="text"
           placeholder="Full Name"
-          className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+          className="w-full rounded-xl border border-border bg-card px-5 py-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 shadow-sm transition-all"
         />
         <input
           type="tel"
           placeholder="Mobile Number"
-          className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+          className="w-full rounded-xl border border-border bg-card px-5 py-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 shadow-sm transition-all"
         />
-        <select className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-sm text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition">
+        <select className="w-full rounded-xl border border-border bg-card px-5 py-4 text-sm text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 shadow-sm transition-all">
           <option value="">Select Insurance Type</option>
           <option>Car Insurance</option>
           <option>Health Insurance</option>
@@ -29,12 +35,12 @@ const Contact = () => (
           <option>Bike Insurance</option>
           <option>Business Insurance</option>
         </select>
-        <button
-          type="submit"
-          className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-base font-semibold text-accent-foreground hover:opacity-90 active:scale-[0.97] transition-all"
-        >
-          <Send className="h-4 w-4" /> Request Callback
-        </button>
+        <Button variant="glow" size="xl" className="w-full">
+          <Send className="h-4 w-4" /> Request Free Callback
+        </Button>
+        <p className="text-xs text-center text-muted-foreground">
+          By submitting, you agree to our Terms of Service and Privacy Policy.
+        </p>
       </form>
     </div>
   </section>
