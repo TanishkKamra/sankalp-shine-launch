@@ -61,11 +61,17 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-lg px-6 pb-6 pt-4 space-y-3 animate-fade-in">
-          {links.map((l) => (
-            <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            (l as any).isRoute ? (
+              <Link key={l.label} to={l.href} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                {l.label}
+              </a>
+            )
+          )}
           <Button variant="glow" className="w-full mt-2" asChild>
             <a href="#contact">Get a Quote</a>
           </Button>
