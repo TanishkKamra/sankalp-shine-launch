@@ -29,11 +29,17 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
-            <a key={l.label} href={l.href} className="nav-link">
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            (l as any).isRoute ? (
+              <Link key={l.label} to={l.href} className="nav-link">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.label} href={l.href} className="nav-link">
+                {l.label}
+              </a>
+            )
+          )}
         </div>
 
         {/* Desktop Actions */}
